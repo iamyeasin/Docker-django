@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    command: python3 /postgres/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - . :/postgres
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
