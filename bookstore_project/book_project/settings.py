@@ -29,14 +29,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     #Third party
      'crispy_forms',
+     'allauth',
+     'allauth.account',
 
     #local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig'
 ]
+
+
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -134,3 +140,12 @@ STATICFILES_FINDERS = [
 
 
 AUTH_USER_MODEL = 'users.CustomUser'
+#django-allauth config
+SITE_ID = 1
+AUTHENTICATION_BACKENDS=(
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+ACCOUNT_SESSION_REMEMBER=True
