@@ -1,2 +1,2 @@
 # Docker-django
-Learning docker with Django framwork. 
+Learning docker with Django framework. 
